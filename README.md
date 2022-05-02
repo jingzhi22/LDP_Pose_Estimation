@@ -12,6 +12,8 @@ Hopefully, a completed project would mean that:
 1) A longboarder can convey how he/she longboards effectively using this tool and without the need to say a word.
 2) A longboarder can improve him/herself by comparing visual results (rather than with idioms, pseudo kinematics or feelings).
 
+
+
 **Completed features**
 1) Pose estimation with visualization of hip, knee and ankle bending.
 
