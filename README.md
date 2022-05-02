@@ -18,6 +18,7 @@ Hopefully, a completed project would mean that:
 1) Pose estimation with visualization of hip, knee and ankle bending.
 
 **KIV features**
-1) Visualize body lean
-2) Visualize shoulder rotation
-3) Format video with MPL
+1) Format video to 30 FPS, max 10 seconds
+2) Visualize body lean
+3) Visualize shoulder rotation
+4) Format video with MPL
