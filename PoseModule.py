@@ -6,12 +6,21 @@ import math
 # https://google.github.io/mediapipe/solutions/pose
 
 class poseDetector():
-    def __init__(self):
+    def __init__(self,cap):
         
         self.mpDraw = mp.solutions.drawing_utils
         self.mpPose = mp.solutions.pose
         self.pose = self.mpPose.Pose()
+        self.cap = cap
+        self.height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        self.width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        self.fc = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        self.fps = cap.get(cv2.CAP_PROP_FPS)
     
+    def resizeImageByHeight(self, img, height):
+        dim = (int(self.width*height/self.height), height)
+        return cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
+
     def findPose(self, img, draw=True):
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         self.results = self.pose.process(imgRGB)
@@ -23,8 +32,6 @@ class poseDetector():
     def findPosition(self, img, draw=True):
         lm_list = []
         coor_list = []
-
-
         h,w,c = img.shape
         if self.results.pose_landmarks:
             for id, lm in enumerate(self.results.pose_landmarks.landmark):
@@ -52,48 +59,5 @@ class poseDetector():
             angle = 180 - angle
 
         if draw:
-            cv2.putText(img,str(int(angle)),(x2,y2+20), cv2.FONT_HERSHEY_PLAIN,5,(255,0,0),5)
-        return img
-    
-def main():
-    cap = cv2.VideoCapture("PoseVideos/5.mp4")
-
-    length = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    fps = cap.get(cv2.CAP_PROP_FPS)
-
-    videoWriter = cv2.VideoWriter("PoseResults/5.mp4", cv2.VideoWriter_fourcc('P','I','M','1'), int(fps*1), (width,height))
-
-    count = 0
-    detector = poseDetector()
-    while True: 
-        success, img = cap.read()
-        if success:
-            try:
-                img = detector.findPose(img)
-                img, lm_list = detector.findPosition(img)
-                # right / left ankle
-                img = detector.findAngle(img,[26,30,32],'ankle')
-                #img = detector.findAngle(img,[25,29,31],'ankle')
-                # right / left hip
-                img = detector.findAngle(img,[12,24,26],'hip')
-                #img = detector.findAngle(img,[11,23,25],'hip')
-                # right / left knee
-                img = detector.findAngle(img,[24,26,28],'knee')
-                #img = detector.findAngle(img,[23,25,27],'knee')
-            except:
-                pass
-            cv2.imshow("Image",img)
-        videoWriter.write(img)
-
-        if count == length-1:
-            cap.release()
-            cv2.destroyAllWindows()
-            videoWriter.release()
-        count += 1
-        print(count)
-
-if __name__ == "__main__":
-    main()
-    print('done')
+            cv2.putText(img,str(int(angle)),(x2,y2+20), cv2.FONT_HERSHEY_PLAIN,2,(255,0,0),2)
+        return img, int(angle)
