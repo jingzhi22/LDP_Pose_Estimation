@@ -1,5 +1,5 @@
 ![test](https://user-images.githubusercontent.com/36811513/167272989-16becce3-bcfd-413a-bed4-4ef3344664c8.gif)
-![Test Image 4](https://github.com/tograh/testrepository/3DTest.png 1.8k)
+![Test Image 4](https://github.com/tograh/testrepository/3DTest.png)
 
 # LDP_Pose_Estimation
 
