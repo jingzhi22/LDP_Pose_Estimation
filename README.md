@@ -2,9 +2,11 @@
 
 # LDP_Pose_Estimation
 
-Longboard push and pump techniques are difficult to verbalise. While visual methods can be helpful, some movements are simply too nuanced. Several pre-trained ML models are deployed in this method to address those limitaions. 
+Longboard push and pump techniques are difficult to verbalise. While visual methods can be helpful, some movements are simply too nuanced. Pre-trained ML model for computer vision is deployed in this method to address the limitaions. Hopefully, this method can help to visualize the nuances of longboarding using visual comparison and data visualisation. The steps are summarised below:
 
-Hopefully, LDP_Pose_Estimation can help to visualize the nuances of longboarding using visual comparison and data visualisation.
+1) Videos are processed for pose estimation. 
+2) Angles for bending at hips, knees and ankles are extracted.
+3) Summary video combines 2 vide-analysis pair side by side for easy comparison.
 
 **Try it with Colab**
 
