@@ -130,7 +130,7 @@ def GetDiagram(angle_list1, angle_list2):
             pass
     return plot_list
 
-
+# link to first video file
 inputFile1 = "1.mp4"
 cap1 = cv2.VideoCapture(inputFile1)
 cap1.set(cv2.CAP_PROP_FPS, 25)
@@ -138,6 +138,7 @@ detector1 = poseDetector(cap1)
 print("frame count: ", detector1.fc)
 print("FPS: ", detector1.fps)
 
+# link to second video file
 inputFile2 = "2.mp4"
 cap2 = cv2.VideoCapture(inputFile2)
 detector2 = poseDetector(cap2)
