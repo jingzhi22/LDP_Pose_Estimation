@@ -8,8 +8,12 @@ Longboard push and pump techniques are difficult to verbalise. While visual meth
 
 1) Videos are processed for pose estimation. 
 2) Angles for bending at hips, knees and ankles are extracted.
-3) Summary video combines 2 vide-analysis pair side by side for easy comparison.
+3) Summary video combines 2 video-analysis pair side by side for comparison.
 
 **Try it with Colab**
 
 https://colab.research.google.com/drive/1fhQdvNffRlYdGZwpcYWXRMRiGqPzN01s?usp=sharing
+
+**Improvement**
+gif files can be big.
+Video only analysis right hip knee and ankle.
