@@ -14,7 +14,3 @@ Longboard push and pump techniques are difficult to verbalise. While visual meth
 **Try it with Colab**
 
 https://colab.research.google.com/drive/1fhQdvNffRlYdGZwpcYWXRMRiGqPzN01s?usp=sharing
-
-**Improvement**
-gif files can be big.
-Video only analysis right hip knee and ankle.
